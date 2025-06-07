@@ -1,21 +1,28 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
-import Header from "../components/Header";
+import { router } from "expo-router";
+import { Pressable, StyleSheet } from "react-native";
+import ThemedView from "../components/ThemedView";
+import ThemedText from "../components/ThemedText";
 
 export default function Home() {
   return (
-    <View style={styles.container}>
-      <Header />
-      <StatusBar style="auto" />
-      <Text>Application</Text>
-    </View>
+    <ThemedView style={styles.container}>
+      <ThemedText title style={{ fontSize: 20 }}>
+        Kesha Pangit
+      </ThemedText>
+      <Pressable onPress={() => router.push("/about")}>
+        <ThemedText>About</ThemedText>
+      </Pressable>
+      <Pressable onPress={() => router.push("/contact")}>
+        <ThemedText>Contact</ThemedText>
+      </Pressable>
+    </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    marginTop: 10,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

@@ -1,36 +1,89 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import Header from "../../components/Header";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import ThemedView from "../../components/ThemedView";
 
-const About = () => {
+export default function About() {
   return (
-    <View style={styles.container}>
-      <Header />
-      <Text>About Page</Text>
-    </View>
-  );
-};
+    <ThemedView>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.text}>About Page</Text>
+        <Text style={styles.text}>More content...</Text>
+        <Text style={styles.text}>Even more content...</Text>
+        <Text style={styles.text}>You can keep adding content here.</Text>
+        <Text style={styles.text}>This will scroll if it's too long.</Text>
 
-export default About;
+        <Text style={styles.text}>About Page</Text>
+        <Text style={styles.text}>More content...</Text>
+        <Text style={styles.text}>Even more content...</Text>
+        <Text style={styles.text}>You can keep adding content here.</Text>
+        <Text style={styles.text}>This will scroll if it's too long.</Text>
+
+        <Text style={styles.text}>About Page</Text>
+        <Text style={styles.text}>More content...</Text>
+        <Text style={styles.text}>Even more content...</Text>
+        <Text style={styles.text}>You can keep adding content here.</Text>
+        <Text style={styles.text}>This will scroll if it's too long.</Text>
+
+        <Text style={styles.text}>About Page</Text>
+        <Text style={styles.text}>More content...</Text>
+        <Text style={styles.text}>Even more content...</Text>
+        <Text style={styles.text}>You can keep adding content here.</Text>
+        <Text style={styles.text}>This will scroll if it's too long.</Text>
+
+        <Text style={styles.text}>About Page</Text>
+        <Text style={styles.text}>More content...</Text>
+        <Text style={styles.text}>Even more content...</Text>
+        <Text style={styles.text}>You can keep adding content here.</Text>
+        <Text style={styles.text}>This will scroll if it's too long.</Text>
+
+        <Text style={styles.text}>About Page</Text>
+        <Text style={styles.text}>More content...</Text>
+        <Text style={styles.text}>Even more content...</Text>
+        <Text style={styles.text}>You can keep adding content here.</Text>
+        <Text style={styles.text}>This will scroll if it's too long.</Text>
+
+        <Text style={styles.text}>About Page</Text>
+        <Text style={styles.text}>More content...</Text>
+        <Text style={styles.text}>Even more content...</Text>
+        <Text style={styles.text}>You can keep adding content here.</Text>
+        <Text style={styles.text}>This will scroll if it's too long.</Text>
+
+        <Text style={styles.text}>About Page</Text>
+        <Text style={styles.text}>More content...</Text>
+        <Text style={styles.text}>Even more content...</Text>
+        <Text style={styles.text}>You can keep adding content here.</Text>
+        <Text style={styles.text}>This will scroll if it's too long.</Text>
+
+        <Text style={styles.text}>About Page</Text>
+        <Text style={styles.text}>More content...</Text>
+        <Text style={styles.text}>Even more content...</Text>
+        <Text style={styles.text}>You can keep adding content here.</Text>
+        <Text style={styles.text}>This will scroll if it's too long.</Text>
+
+        <Text style={styles.text}>About Page</Text>
+        <Text style={styles.text}>More content...</Text>
+        <Text style={styles.text}>Even more content...</Text>
+        <Text style={styles.text}>You can keep adding content here.</Text>
+        <Text style={styles.text}>This will scroll if it's too long.</Text>
+
+        <Text style={styles.text}>About Page</Text>
+        <Text style={styles.text}>More content...</Text>
+        <Text style={styles.text}>Even more content...</Text>
+        <Text style={styles.text}>You can keep adding content here.</Text>
+        <Text style={styles.text}>This will scroll if it's too long.</Text>
+      </ScrollView>
+    </ThemedView>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    marginTop: 10,
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 16,
   },
-  Header: {
-    backgroundColor: "gray",
-
-    display: "flex",
-    flexDirection: "row",
-  },
-  Link: {
-    color: "black",
-    fontWeight: "bold",
-    fontSize: 18,
-    textDecorationLine: "underline",
-    padding: 15,
-    borderRadius: 20,
+  text: {
+    fontSize: 20,
+    marginVertical: 10,
   },
 });

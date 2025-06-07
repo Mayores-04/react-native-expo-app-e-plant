@@ -1,6 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { router } from "expo-router";
-import { Link } from "expo-router";
 
 export default function Header() {
   return (
@@ -10,15 +9,12 @@ export default function Header() {
       <NavButton label="Contact" path="/contact" />
     </View>
   );
-};
+}
 
-const NavButton = ({ label, path } : { label: string; path: string }) => (
-    <Pressable
+const NavButton = ({ label, path }: { label: string; path: string }) => (
+  <Pressable
     onPress={() => router.push(path)}
-    style={({ pressed }) => [
-      styles.button,
-      pressed && styles.pressedButton,
-    ]}
+    style={({ pressed }) => [styles.button, pressed && styles.pressedButton]}
   >
     <Text style={styles.buttonText}>{label}</Text>
   </Pressable>
@@ -26,6 +22,7 @@ const NavButton = ({ label, path } : { label: string; path: string }) => (
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 28,
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
