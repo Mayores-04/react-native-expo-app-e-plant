@@ -1,9 +1,15 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { router } from "expo-router";
+import { useTheme } from "../context/ThemeContext";
+import { Colors } from "../constants/Color"
+import ThemedText from "./ThemedText";
 
 export default function Header() {
+  const { theme } = useTheme();
+  const color = Colors[theme];
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container , {backgroundColor: color.navBackground}]}>
       <NavButton label="Home" path="/" />
       <NavButton label="About" path="/about" />
       <NavButton label="Contact" path="/contact" />
@@ -16,19 +22,19 @@ const NavButton = ({ label, path }: { label: string; path: string }) => (
     onPress={() => router.push(path)}
     style={({ pressed }) => [styles.button, pressed && styles.pressedButton]}
   >
-    <Text style={styles.buttonText}>{label}</Text>
+    <ThemedText style={styles.buttonText}>{label}</ThemedText>
   </Pressable>
 );
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 35,
+    zIndex: 1000,
+    paddingTop: 55,
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    paddingVertical: 10,
+    paddingVertical: 18,
     paddingHorizontal: 16,
-    backgroundColor: "gray",
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
   },
@@ -41,7 +47,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#444",
   },
   buttonText: {
-    color: "#fff",
     fontSize: 16,
     textDecorationLine: "underline",
   },

@@ -32,7 +32,7 @@ const ThemedView = ({ style, ...props }: ThemedViewProps) => {
   const color = Colors[theme];
 
   return (
-    <View style={[{ backgroundColor: color.uiBackground }, style]} {...props} />
+    <View style={[{ backgroundColor: color.background }, style]} {...props} />
   );
 };
 

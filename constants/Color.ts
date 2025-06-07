@@ -17,8 +17,8 @@ export const Colors = {
   light: {
     text: "#355e3b",            // Deep green-gray (body text)
     title: "#1b2a1f",           // Dark forest green (headers)
-    background: "#e6f4ea",      // Soft pastel green background
-    navBackground: "#d9ead3",   // Pale leafy green
+    background: "#B0CEB9",      // Soft pastel green background
+    navBackground: "#EEEEEE",   // Pale leafy green
     iconColor: "#558b60",       // Medium green-gray (icons, unfocused)
     iconColorFocused: "#1b2a1f",// Dark forest green (icons, focused)
     uiBackground: "#cfe9d8",    // Light leafy green (cards/containers)
