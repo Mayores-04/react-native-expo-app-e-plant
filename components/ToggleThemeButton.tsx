@@ -24,8 +24,10 @@ export default ToggleThemeMode;
 
 const styles = StyleSheet.create({
   button: {
-    padding: 10,
+    padding: 7,
     backgroundColor: '#ccc',
-    borderRadius: 3
+    borderRadius: 3,
+    alignItems: 'center',
+    minWidth: 90
   },
 });
