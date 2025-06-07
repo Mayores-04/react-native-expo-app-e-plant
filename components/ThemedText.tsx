@@ -8,16 +8,14 @@ interface ThemedTextProps extends TextProps {
   children?: ReactNode;
 }
 
-const ThemedText = ({ style, title = false, children, ...props }: ThemedTextProps) => {
+const ThemedText = ({ style, title = false, ...props }: ThemedTextProps) => {
   const { theme } = useTheme(); 
   const colorScheme = Colors[theme];
 
   const textColor = title ? colorScheme.title : colorScheme.text;
 
   return (
-    <Text style={[{ color: textColor }, style]} {...props}>
-      {children}
-    </Text>
+    <Text style={[{ color: textColor }, style]} {...props}/>
   );
 };
 

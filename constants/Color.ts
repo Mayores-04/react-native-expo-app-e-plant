@@ -1,28 +1,28 @@
 export const Colors = {
-  primary: "#6849a7",        // Deep purple
-  warning: "#cc475a",        // Muted red / alert color
+  primary: "#4CAF50", // Vibrant green (primary brand color)
+  warning: "#e57373", // Soft red (alert color)
 
   dark: {
-    text: "#d4d4d4",          // Light gray (for readable text on dark background)
-    title: "#fff",            // Pure white (for prominent headings)
-    background: "#252231",    // Very dark purple-gray
-    navBackground: "#201e2b", // Almost black with slight purple tone (used in nav bar)
-    iconColor: "#9591a5",     // Muted lavender gray (icons, unfocused)
-    iconColorFocused: "#fff", // White (icons, focused)
-    uiBackground: "#2f2b3d",  // Dark grayish purple (cards, containers)
-    buttonBackground: "#444", // Light gray (button background on dark theme)
-    buttonText: "#eee"   
+    text: "#dcefdc",            // Soft mint white (for readability)
+    title: "#ffffff",           // Pure white (for headings)
+    background: "#1b2a1f",      // Deep forest green
+    navBackground: "#162219",   // Slightly darker for navbar
+    iconColor: "#8fae92",       // Desaturated sage green (unfocused icons)
+    iconColorFocused: "#ffffff",// White (focused icons)
+    uiBackground: "#223426",    // Slightly lighter than background (cards/containers)
+    buttonBackground: "#388e3c",// Muted strong green (button background)
+    buttonText: "#ffffff",      // White text for contrast
   },
 
   light: {
-    text: "#625f72",          // dark gray with a purple tint (body text)
-    title: "#201e2b",         // Very dark muted purple (for headers)
-    background: "#e0dfe8",    // Soft light purple-gray (page background)
-    navBackground: "#e8e7ef", // Pale gray with purple hint (navbar background)
-    iconColor: "#686477",     // Muted dark lavender (icons, unfocused)
-    iconColorFocused: "#201e2b", // Dark purple (icons, focused)
-    uiBackground: "#d6d5e1",  // Light gray with lavender tone (card/container background)
-    buttonBackground: "#aaa", // Dark gray (button background on light theme)
-    buttonText: "#625f72"   
+    text: "#355e3b",            // Deep green-gray (body text)
+    title: "#1b2a1f",           // Dark forest green (headers)
+    background: "#e6f4ea",      // Soft pastel green background
+    navBackground: "#d9ead3",   // Pale leafy green
+    iconColor: "#558b60",       // Medium green-gray (icons, unfocused)
+    iconColorFocused: "#1b2a1f",// Dark forest green (icons, focused)
+    uiBackground: "#cfe9d8",    // Light leafy green (cards/containers)
+    buttonBackground: "#a5d6a7",// Light green for button
+    buttonText: "#355e3b",      // Darker text for contrast
   },
 };

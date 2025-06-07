@@ -22,7 +22,7 @@ const NavButton = ({ label, path }: { label: string; path: string }) => (
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 28,
+    paddingTop: 35,
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
