@@ -1,15 +1,19 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import { router } from "expo-router";
+import { Pressable, StyleSheet, View } from "react-native";
+import { router, usePathname } from "expo-router";
 import { useTheme } from "../context/ThemeContext";
-import { Colors } from "../constants/Color"
+import { Colors } from "../constants/Color";
 import ThemedText from "./ThemedText";
 
 export default function Header() {
   const { theme } = useTheme();
   const color = Colors[theme];
+  const pathname = usePathname();
+
+  if (pathname === "/auth/login" || pathname === "/auth/register") return null;
+  if (pathname.startsWith("/auth")) return null;
 
   return (
-    <View style={[styles.container , {backgroundColor: color.navBackground}]}>
+    <View style={[styles.container, { backgroundColor: color.navBackground }]}>
       <NavButton label="Home" path="/" />
       <NavButton label="About" path="/about" />
       <NavButton label="Contact" path="/contact" />

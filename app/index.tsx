@@ -1,33 +1,9 @@
-import { router } from "expo-router";
-import { Pressable, StyleSheet, View } from "react-native";
-import ThemedView from "../components/ThemedView";
-import ThemedText from "../components/ThemedText";
-import LoginPage from "./auth/login";
+import { Redirect } from "expo-router";
 
-export default function Home() {
+export default function Index() {
   return (
     <>
-      <ThemedView style={styles.container}>
-        {/* <ThemedText title={true} style={{ fontSize: 35, textAlign: "center" }}>
-        E-Plant
-      </ThemedText>
-      <Pressable onPress={() => router.push("/about")}>
-        <ThemedText style={{ textDecorationLine: "underline" }}>About</ThemedText>
-      </Pressable>
-      <Pressable onPress={() => router.push("/contact")}>
-        <ThemedText style={{ textDecorationLine: "underline" }}>Contact</ThemedText>
-      </Pressable> */}
-        <LoginPage />
-      </ThemedView>
+      <Redirect href="/auth/login" />
     </>
-  );
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#81A48B",
-  },
-});

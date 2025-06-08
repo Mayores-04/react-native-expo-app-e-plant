@@ -14,6 +14,7 @@ export default function Contact() {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: -13,
     flex: 1,
     alignItems: "center",
     justifyContent: "center",

@@ -17,7 +17,10 @@ export default function About() {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: -13,
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
   subContainer: {
     flexGrow: 1,
