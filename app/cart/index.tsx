@@ -1,11 +1,11 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import ThemedView from "../../components/ThemedView";
 
-export default function About() {
+export default function Cart() {
   return (
     <ThemedView style={styles.container}>
       <ScrollView contentContainerStyle={styles.subContainer}>
-        <Text style={styles.text}>About Page</Text>
+        <Text style={styles.text}>Cart Page</Text>
         <Text style={styles.text}>More content...</Text>
         <Text style={styles.text}>Even more content...</Text>
         <Text style={styles.text}>You can keep adding content here.</Text>
@@ -17,7 +17,6 @@ export default function About() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: -13,
     flex: 1,
     alignItems: "center",
     justifyContent: "center",

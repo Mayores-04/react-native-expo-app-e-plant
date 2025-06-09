@@ -4,10 +4,10 @@ import {
 import ThemedView from "../../components/ThemedView";
 import ThemedText from "../../components/ThemedText";
 
-export default function Contact() {
+export default function Profile() {
   return (
     <ThemedView style={[styles.container]}>
-      <ThemedText>Contact Page</ThemedText>
+      <ThemedText>Profile Page</ThemedText>
     </ThemedView>
   );
 }

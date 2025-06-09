@@ -9,13 +9,12 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import ThemedView from "../../../components/ThemedView";
-import ThemedText from "../../../components/ThemedText";
 import { router } from "expo-router";
 import { Dimensions } from "react-native";
 
 export default function LoginPage() {
   const [text, setText] = useState("");
-const screenWidth = Dimensions.get("window").width;
+  const screenWidth = Dimensions.get("window").width;
 
   return (
     <ThemedView style={styles.container}>
@@ -70,25 +69,20 @@ const screenWidth = Dimensions.get("window").width;
             onChangeText={setText}
             value={text}
           />
-          
         </View>
         <Text style={{ padding: 5, color: "white" }}>Forgot password?</Text>
 
         <TouchableHighlight
           onPress={() => {
-            Alert.alert(
-              "Login Successful",  
-              "Do you want to continue?", 
-              [
-                {
-                  text: "no",  
-                },
-                {
-                  text: "continue",  
-                  onPress: () => router.push("/home"),
-                },
-              ]
-            );
+            Alert.alert("Login Successful", "Do you want to continue?", [
+              {
+                text: "no",
+              },
+              {
+                text: "continue",
+                onPress: () => router.push("/home"),
+              },
+            ]);
           }}
           accessibilityLabel="Login to your account"
           style={styles.button}
@@ -103,7 +97,9 @@ const screenWidth = Dimensions.get("window").width;
             Don't have an account?
           </Text>
           <Pressable onPress={() => router.push("/auth/register")}>
-            <Text style={{ color: "white", padding: 5, paddingHorizontal: 15 }}>sign up</Text>
+            <Text style={{ color: "white", padding: 5, paddingHorizontal: 15 }}>
+              sign up
+            </Text>
           </Pressable>
         </View>
       </View>

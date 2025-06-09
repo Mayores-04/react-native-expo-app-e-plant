@@ -73,7 +73,7 @@ export default function RegisterPage() {
             value={text}
           />
         </View>
-                <View style={{ padding: 5 }}>
+        <View style={{ padding: 5 }}>
           <TextInput
             style={{
               alignSelf: "center",
@@ -113,8 +113,15 @@ export default function RegisterPage() {
 
         <TouchableHighlight
           onPress={() => {
-            console.log("Register pressed");
-            alert("Register pressed");
+            Alert.alert("Register Successful", "Do you want to continue?", [
+              {
+                text: "no",
+              },
+              {
+                text: "continue",
+                onPress: () => router.push("/home"),
+              },
+            ]);
           }}
           accessibilityLabel="Login to your account"
           style={styles.button}
@@ -128,10 +135,10 @@ export default function RegisterPage() {
           <Text style={{ padding: 5, color: "white", fontWeight: 600 }}>
             Already have an account?
           </Text>
-          <Pressable
-            onPress={() => router.push("/auth/login")}
-          >
-            <Text style={{ color: "white", padding: 5, paddingHorizontal: 15 }}>Login</Text>
+          <Pressable onPress={() => router.push("/auth/login")}>
+            <Text style={{ color: "white", padding: 5, paddingHorizontal: 15 }}>
+              Login
+            </Text>
           </Pressable>
         </View>
       </View>
@@ -158,6 +165,6 @@ const styles = StyleSheet.create({
   logintoggle: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between"
-  }
+    justifyContent: "space-between",
+  },
 });

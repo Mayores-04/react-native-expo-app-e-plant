@@ -1,26 +1,40 @@
+import React from "react";
+import { ScrollView, StyleSheet } from "react-native";
 import ThemedView from "../../components/ThemedView";
 import ThemedText from "../../components/ThemedText";
 import ToggleThemeMode from "../../components/ToggleThemeButton";
-import { StyleSheet } from "react-native";
-import React from "react";
 
 export default function HomePage() {
   return (
-    <>
-      <ThemedView style={[styles.mainContainer]}>
-        <ThemedText title={true} className="text-4xl">Home Page</ThemedText>
-          <ThemedText className={`text-4xl`}>Tailwind?</ThemedText>
-      </ThemedView>
+    <ThemedView style={styles.container}>
+      {/* Scrollable Content */}
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        {Array.from({ length: 30 }).map((_, i) => (
+          <ThemedText key={i} style={styles.itemText}>
+            Scrollable Item {i + 1}
+          </ThemedText>
+        ))}
+      </ScrollView>
       <ToggleThemeMode />
-    </>
+    </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
-  mainContainer: {
+  container: {
     flex: 1,
-    marginTop: -13,
-    alignItems: "center",
-    justifyContent: "center",
+  },
+  fixedText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
+    padding: 10,
+  },
+  scrollContent: {
+    padding: 20,
+  },
+  itemText: {
+    fontSize: 18,
+    marginVertical: 10,
   },
 });
