@@ -20,7 +20,7 @@ export default function RegisterPage() {
   const screenWidth = Dimensions.get("window").width;
 
   return (
-    <ThemedView style={styles.container}>
+    <View style={styles.container}>
       <ThemedText style={{ color: "white", fontWeight: 800, fontSize: 60 }}>
         E-Plants
       </ThemedText>
@@ -142,7 +142,7 @@ export default function RegisterPage() {
           </Pressable>
         </View>
       </View>
-    </ThemedView>
+    </View>
   );
 }
 

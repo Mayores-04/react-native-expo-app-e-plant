@@ -1,12 +1,10 @@
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
-import ThemedView from "../../components/ThemedView";
+import { ScrollView, StyleSheet, View } from "react-native";
 import ThemedText from "../../components/ThemedText";
-import ToggleThemeMode from "../../components/ToggleThemeButton";
 
 export default function HomePage() {
   return (
-    <ThemedView style={styles.container}>
+    <View style={styles.container}>
       {/* Scrollable Content */}
       <ScrollView contentContainerStyle={styles.scrollContent}>
         {Array.from({ length: 30 }).map((_, i) => (
@@ -15,8 +13,7 @@ export default function HomePage() {
           </ThemedText>
         ))}
       </ScrollView>
-      <ToggleThemeMode />
-    </ThemedView>
+    </View>
   );
 }
 

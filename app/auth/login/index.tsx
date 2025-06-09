@@ -17,7 +17,7 @@ export default function LoginPage() {
   const screenWidth = Dimensions.get("window").width;
 
   return (
-    <ThemedView style={styles.container}>
+    <View style={styles.container}>
       <Text style={{ color: "white", fontWeight: 800, fontSize: 60 }}>
         E-Plants
       </Text>
@@ -103,7 +103,7 @@ export default function LoginPage() {
           </Pressable>
         </View>
       </View>
-    </ThemedView>
+    </View>
   );
 }
 

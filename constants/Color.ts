@@ -12,6 +12,10 @@ export const Colors = {
     uiBackground: "#223426",    // Slightly lighter than background (cards/containers)
     buttonBackground: "#388e3c",// Muted strong green (button background)
     buttonText: "#ffffff",      // White text for contrast
+    drawerBackground: "#2E2E2E",
+    drawerItemsBG: "#1A1A1A",
+    activeDrawerItem: "#4A4A4A",
+    logoutButtonBackground: "#e57373"
   },
 
   light: {
@@ -24,5 +28,9 @@ export const Colors = {
     uiBackground: "#cfe9d8",    // Light leafy green (cards/containers)
     buttonBackground: "#a5d6a7",// Light green for button
     buttonText: "#355e3b",      // Darker text for contrast
+    drawerBackground: "#ABABAB",
+    drawerItemsBG: "#2C2C2C",
+    activeDrawerItem: "#5D5D5D",
+    logoutButtonBackground: "#F28B82"
   },
 };

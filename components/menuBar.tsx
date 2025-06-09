@@ -10,11 +10,14 @@ import { Colors } from "../constants/Color";
 import { useState } from "react";
 import ThemedView from "./ThemedView";
 import ThemedText from "./ThemedText";
+import ToggleThemeMode from "../components/ToggleThemeButton";
+import LogoutModal from "./LogoutModal";
 
-export default function Header() {
+export default function MenuBar() {
+  const pathname = usePathname();
+
   const { theme } = useTheme();
   const color = Colors[theme];
-  const pathname = usePathname();
 
   const pathItems = [
     { path: "home", label: "Home" },
@@ -29,8 +32,6 @@ export default function Header() {
 
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
-  if (pathname.startsWith("/auth")) return null;
-
   const toggleDrawer = () => setDrawerOpen(!isDrawerOpen);
   const closeDrawer = () => setDrawerOpen(false);
 
@@ -41,20 +42,27 @@ export default function Header() {
       : pathItems.find((item) => item.path === currentPath)?.label ||
         currentPath.charAt(0).toUpperCase() + currentPath.slice(1);
 
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  const handleLogout = () => {
+    setShowLogoutModal(false);
+    router.push("/auth/login");
+  }
+  if (pathname.startsWith("/auth")) return null;
   return (
     <>
-      <ThemedView
+      <View
         style={[styles.container, { backgroundColor: color.navBackground }]}
       >
         <Pressable onPress={toggleDrawer}>
-          <ThemedText title={true} style={{ fontSize: 26, fontWeight: 900  }}>
+          <ThemedText title={true} style={{ fontSize: 26, fontWeight: 900 }}>
             ☰
           </ThemedText>
         </Pressable>
         <ThemedText title={true} style={{ fontSize: 26, fontWeight: 700 }}>
           {pageTitle}
         </ThemedText>
-      </ThemedView>
+      </View>
 
       {isDrawerOpen && (
         <ThemedView style={StyleSheet.absoluteFill}>
@@ -62,7 +70,9 @@ export default function Header() {
             <View style={styles.backdrop} />
           </TouchableWithoutFeedback>
 
-          <ThemedView style={styles.drawer}>
+          <ThemedView
+            style={[styles.drawer, { backgroundColor: color.drawerBackground }]}
+          >
             {pathItems.map((item, i) => {
               const isActive = pathname === `/${item.path}`;
               return (
@@ -70,7 +80,11 @@ export default function Header() {
                   key={i}
                   style={[
                     styles.drawerItem,
-                    isActive && styles.activeDrawerItem,
+                    {
+                      backgroundColor: isActive
+                        ? color.activeDrawerItem
+                        : color.drawerItemsBG,
+                    },
                   ]}
                   onPress={() => {
                     closeDrawer();
@@ -85,25 +99,36 @@ export default function Header() {
             })}
 
             <Pressable
-              style={[styles.drawerItem]}
+              style={[
+                styles.drawerItem,
+                { backgroundColor: color.drawerItemsBG },
+              ]}
               onPress={() => {
                 closeDrawer();
-                router.push("/auth/login");
+                setShowLogoutModal(true);
               }}
             >
               <ThemedText style={styles.drawerText}>Logout</ThemedText>
             </Pressable>
+
+            <ToggleThemeMode />
           </ThemedView>
         </ThemedView>
       )}
+
+      <LogoutModal
+        visible={showLogoutModal}
+        onConfirm={handleLogout}
+        onCancel={() => setShowLogoutModal(false)}
+      />
     </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    zIndex: 1000,
     paddingTop: 55,
+    zIndex: 1000,
     flexDirection: "row",
     gap: 20,
     justifyContent: "flex-start",
@@ -118,12 +143,11 @@ const styles = StyleSheet.create({
   },
   drawer: {
     position: "absolute",
-    top: 108,
+    top: 108.1,
     bottom: 0,
     left: 0,
-    width: 250,
-    backgroundColor: "#C5C5C5",
-    paddingVertical: 20,
+    width: "70%",
+    paddingVertical: 10,
     paddingHorizontal: 0,
     elevation: 10,
     zIndex: 1001,
@@ -133,14 +157,10 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingVertical: 10,
     paddingHorizontal: 16,
-    backgroundColor: "#2C2C2C",
     marginBottom: 10,
   },
   drawerText: {
     fontSize: 14,
     color: "#fff",
-  },
-  activeDrawerItem: {
-    backgroundColor: "#5D5D5D",
   },
 });

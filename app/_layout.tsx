@@ -1,14 +1,14 @@
-import { Slot, Stack } from "expo-router";
+import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { Colors } from "../constants/Color";
 import { ThemeProvider, useTheme } from "../context/ThemeContext";
-import "../global.css"
-import Header from "../components/Header";
+import Header from "../components/menuBar";
 import ThemedView from "../components/ThemedView";
+import "../global.css";
 
 const LayoutContent = () => {
-  const { theme } = useTheme();  
-  const color = Colors[theme];  
+  const { theme } = useTheme();
+  const color = Colors[theme];
 
   return (
     <ThemedView style={{ flex: 1, backgroundColor: color.background }}>
@@ -19,9 +19,7 @@ const LayoutContent = () => {
   );
 };
 
-
 export default function RootLayout() {
-
   return (
     <ThemeProvider>
       <LayoutContent />
