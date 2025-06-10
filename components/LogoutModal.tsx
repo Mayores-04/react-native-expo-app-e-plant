@@ -1,5 +1,7 @@
 import React from "react";
 import { Modal, View, Text, Pressable, StyleSheet } from "react-native";
+import { useTheme } from "../context/ThemeContext";
+import { Colors } from "../constants/Color";
 
 type LogoutModalProps = {
   visible: boolean;
@@ -8,17 +10,19 @@ type LogoutModalProps = {
 };
 
 function LogoutModal({ visible, onConfirm, onCancel }: LogoutModalProps) {
+  const { theme } = useTheme();
+  const color = Colors[theme];
+
   return (
     <Modal transparent visible={visible} animationType="fade">
       <View style={styles.modalOverlay}>
-        <View style={styles.modalContainer}>
-          <Text style={styles.modalTitle}>Confirm Logout</Text>
-          <Text style={styles.modalMessage}>Are you sure you want to logout?</Text>
+        <View style={[styles.modalContainer, { backgroundColor: color.drawerBackground}]}>
+          <Text style={[styles.modalTitle, { color: "white"}]} >Confirm Logout</Text>
           <View style={styles.buttonsRow}>
             <Pressable style={[styles.button, styles.cancelButton]} onPress={onCancel}>
               <Text style={styles.cancelButtonText}>Cancel</Text>
             </Pressable>
-            <Pressable style={[styles.button, styles.confirmButton]} onPress={onConfirm}>
+            <Pressable style={[styles.button, { backgroundColor: color.drawerItemsBG }]} onPress={onConfirm}>
               <Text style={styles.confirmButtonText}>Logout</Text>
             </Pressable>
           </View>
@@ -36,7 +40,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   modalContainer: {
-    width: 300,
+    width: "70%",
     backgroundColor: "#fff",
     borderRadius: 8,
     padding: 20,
@@ -46,26 +50,20 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 10,
-  },
-  modalMessage: {
-    fontSize: 16,
-    marginBottom: 20,
+    textAlign: "center"
   },
   buttonsRow: {
+    gap: 10,
     flexDirection: "row",
-    justifyContent: "flex-end",
+    justifyContent: "center",
   },
   button: {
-    paddingVertical: 10,
+    paddingVertical: 6,
     paddingHorizontal: 15,
     borderRadius: 5,
-    marginLeft: 10,
   },
   cancelButton: {
     backgroundColor: "#ddd",
-  },
-  confirmButton: {
-    backgroundColor: "#d33",
   },
   cancelButtonText: {
     color: "#333",

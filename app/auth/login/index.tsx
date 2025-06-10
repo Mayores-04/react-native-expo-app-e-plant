@@ -8,12 +8,12 @@ import {
   View,
 } from "react-native";
 import React, { useState } from "react";
-import ThemedView from "../../../components/ThemedView";
 import { router } from "expo-router";
 import { Dimensions } from "react-native";
 
 export default function LoginPage() {
-  const [text, setText] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const screenWidth = Dimensions.get("window").width;
 
   return (
@@ -48,8 +48,8 @@ export default function LoginPage() {
               textAlign: "center",
             }}
             placeholder="Username"
-            onChangeText={setText}
-            value={text}
+            onChangeText={setUsername}
+            value={username}
           />
         </View>
         <View style={{ padding: 5 }}>
@@ -66,8 +66,8 @@ export default function LoginPage() {
               textAlign: "center",
             }}
             placeholder="Password"
-            onChangeText={setText}
-            value={text}
+            onChangeText={setPassword}
+            value={password}
           />
         </View>
         <Text style={{ padding: 5, color: "white" }}>Forgot password?</Text>

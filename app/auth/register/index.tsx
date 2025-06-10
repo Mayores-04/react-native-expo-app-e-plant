@@ -11,12 +11,15 @@ import {
   View,
 } from "react-native";
 import React, { useState } from "react";
-import ThemedView from "../../../components/ThemedView";
 import ThemedText from "../../../components/ThemedText";
 import { router } from "expo-router";
 
 export default function RegisterPage() {
-  const [text, setText] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const screenWidth = Dimensions.get("window").width;
 
   return (
@@ -51,8 +54,8 @@ export default function RegisterPage() {
               textAlign: "center",
             }}
             placeholder="Email"
-            onChangeText={setText}
-            value={text}
+            onChangeText={setEmail}
+            value={email}
           />
         </View>
         <View style={{ padding: 5 }}>
@@ -69,8 +72,8 @@ export default function RegisterPage() {
               textAlign: "center",
             }}
             placeholder="Username"
-            onChangeText={setText}
-            value={text}
+            onChangeText={setUsername}
+            value={username}
           />
         </View>
         <View style={{ padding: 5 }}>
@@ -87,8 +90,8 @@ export default function RegisterPage() {
               textAlign: "center",
             }}
             placeholder="Password"
-            onChangeText={setText}
-            value={text}
+            onChangeText={setPassword}
+            value={password}
           />
         </View>
         <View style={{ padding: 5 }}>
@@ -105,8 +108,8 @@ export default function RegisterPage() {
               textAlign: "center",
             }}
             placeholder="Confirm Password"
-            onChangeText={setText}
-            value={text}
+            onChangeText={setConfirmPassword}
+            value={confirmPassword}
           />
         </View>
         <Text style={{ padding: 5, color: "white" }}>Forgot password?</Text>
