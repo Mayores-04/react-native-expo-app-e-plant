@@ -1,10 +1,11 @@
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import ThemedText from "../../components/ThemedText";
+import ThemedView from "@/components/ThemedView";
 
 export default function HomePage() {
   return (
-    <View style={styles.container}>
+    <ThemedView style={styles.container}>
       {/* Scrollable Content */}
       <ScrollView contentContainerStyle={styles.scrollContent}>
         {Array.from({ length: 30 }).map((_, i) => (
@@ -13,7 +14,7 @@ export default function HomePage() {
           </ThemedText>
         ))}
       </ScrollView>
-    </View>
+    </ThemedView>
   );
 }
 

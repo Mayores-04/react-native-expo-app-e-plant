@@ -1,4 +1,4 @@
-import { Slot } from "expo-router";
+import { Slot, Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { Colors } from "../constants/Color";
 import { ThemeProvider, useTheme } from "../context/ThemeContext";
@@ -14,7 +14,7 @@ const LayoutContent = () => {
     <ThemedView style={{ flex: 1, backgroundColor: color.background }}>
       <StatusBar style={theme === "dark" ? "light" : "dark"} />
       <Header />
-      <Slot />
+      <Stack screenOptions={{ headerShown: false }} />
     </ThemedView>
   );
 };
