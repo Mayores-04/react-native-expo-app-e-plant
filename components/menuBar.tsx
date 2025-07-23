@@ -27,7 +27,7 @@ export default function MenuBar() {
     { path: "purchase", label: "Purchase" },
     { path: "helpCenter", label: "Help Center" },
     { path: "contactUs", label: "Contact Us" },
-    { path: "messenger", label: "Messenger" },
+    { path: "(tabs)/Messenger", label: "Messenger" },
   ];
 
   const [isDrawerOpen, setDrawerOpen] = useState(false);

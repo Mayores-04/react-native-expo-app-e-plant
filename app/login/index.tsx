@@ -20,34 +20,33 @@ export default function LoginPage() {
   const screenWidth = Dimensions.get("window").width;
 
   const handleLogin = async () => {
-  console.log("Login triggered");
+    console.log("Login triggered");
 
-  router.replace("/home");
-  // try {
-  //   const userCredential = await signInWithEmailAndPassword(
-  //     auth,
-  //     email.trim(),
-  //     password
-  //   );
+    router.replace("/home");
+    // try {
+    //   const userCredential = await signInWithEmailAndPassword(
+    //     auth,
+    //     email.trim(),
+    //     password
+    //   );
 
-  //   console.log("User logged in:", userCredential.user.uid);
+    //   console.log("User logged in:", userCredential.user.uid);
 
-  //   Alert.alert("Success", "Logged in!", [
-  //     {
-  //       text: "Continue",
-  //       onPress: () => router.replace("/home"),
-  //     },
-  //   ]);
-  // } catch (error: any) {
-  //   console.log("Login error:", error);
-  //   let errorMessage = error.message;
-  //   if (errorMessage.includes("auth/invalid-credential")) {
-  //     errorMessage = "Invalid email or password.";
-  //   }
-  //   Alert.alert("Login Error", errorMessage);
-  // }
-};
-
+    //   Alert.alert("Success", "Logged in!", [
+    //     {
+    //       text: "Continue",
+    //       onPress: () => router.replace("/home"),
+    //     },
+    //   ]);
+    // } catch (error: any) {
+    //   console.log("Login error:", error);
+    //   let errorMessage = error.message;
+    //   if (errorMessage.includes("auth/invalid-credential")) {
+    //     errorMessage = "Invalid email or password.";
+    //   }
+    //   Alert.alert("Login Error", errorMessage);
+    // }
+  };
 
   return (
     <View style={styles.container}>
