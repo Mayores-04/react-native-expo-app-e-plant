@@ -1,27 +1,55 @@
-// import { View, Text } from 'react-native'
-// import React from 'react'
-// import { Tabs } from 'expo-router'
-// import home from '../(tabs)/home'
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Home from "../(home-tabs)/home";
+import MessengerScreen from "../(home-tabs)/Messenger";
+import Profile from "../(home-tabs)/profile";
+import { Ionicons } from "@expo/vector-icons";
+import MenuBar from "@/components/menuBar";
 
-// const HomeNavigator = () => {
-//   return (
-//     <Tabs>
-//       <Tabs.Screen name='Home' component={home}/>
-//     </Tabs>
-//   )
-// }
-
-// export default HomeNavigator
-
-import { View, Text } from 'react-native'
-import React from 'react'
+const Tab = createBottomTabNavigator();
 
 const HomeNavigator = () => {
   return (
-    <View>
-      <Text>HomeNavigator</Text>
-    </View>
-  )
-}
+    <>
+      <MenuBar/>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          headerShown: false,
+          tabBarStyle: {
+            backgroundColor: "white",
+            elevation: 0,
+          },
+          tabBarActiveTintColor: "black",
+          tabBarInactiveTintColor: "gray",
+          tabBarIcon: ({ color, size }) => {
+            let iconName: string;
 
-export default HomeNavigator
+            if (route.name === "Home") {
+              iconName = "home-outline";
+            } else if (route.name === "Profile") {
+              iconName = "person-outline";
+            } else if (route.name === "Messenger") {
+              iconName = "chatbubble-outline";
+            } else {
+              iconName = "ellipse-outline"; 
+            }
+
+            return (
+              <Ionicons
+                name={iconName as keyof typeof Ionicons.glyphMap}
+                size={size}
+                color={color}
+              />
+            );
+          },
+        })}
+      >
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Profile" component={Profile} />
+        <Tab.Screen name="Messenger" component={MessengerScreen} />
+      </Tab.Navigator>
+    </>
+  );
+};
+
+export default HomeNavigator;

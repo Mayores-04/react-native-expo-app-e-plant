@@ -14,7 +14,6 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth/react-native";
-import { auth, db } from "../../../FirebaseConfig";
 import { doc, setDoc } from "firebase/firestore";
 import { router } from "expo-router";
 
@@ -118,7 +117,7 @@ const handleRegister = async () => {
           <Text style={{ color: "white", fontWeight: "600" }}>
             Already have an account?
           </Text>
-          <Pressable onPress={() => router.push("/auth/login")}>
+          <Pressable onPress={() => router.push("/Login")}>
             <Text style={styles.link}>Log in</Text>
           </Pressable>
         </View>

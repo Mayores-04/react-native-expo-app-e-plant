@@ -9,15 +9,14 @@
 
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import ThemedView from '@/components/ThemedView'
 
 const user = () => {
   return (
-    <View>
+    <ThemedView className='flex-1'>
       <Text>user</Text>
-    </View>
+    </ThemedView>
   )
 }
 
 export default user
-
-const styles = StyleSheet.create({})

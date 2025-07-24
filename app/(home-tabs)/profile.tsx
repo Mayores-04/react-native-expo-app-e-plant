@@ -2,12 +2,12 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import ThemedView from '@/components/ThemedView'
 
-const PurchaseScreen = () => {
+const ProfileScreen = () => {
   return (
     <ThemedView className='flex-1'>
-      <Text>purchase</Text>
+      <Text>profile</Text>
     </ThemedView>
   )
 }
 
-export default PurchaseScreen
+export default ProfileScreen

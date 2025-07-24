@@ -1,8 +1,8 @@
-import { Slot, Stack } from "expo-router";
+import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { Colors } from "../constants/Color";
 import { ThemeProvider, useTheme } from "../context/ThemeContext";
-import Header from "../components/menuBar";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import ThemedView from "../components/ThemedView";
 import "../global.css";
 
@@ -11,18 +11,19 @@ const LayoutContent = () => {
   const color = Colors[theme];
 
   return (
-    <ThemedView style={{ flex: 1, backgroundColor: color.background }}>
+    <ThemedView style={{ flex: 1 }}>
       <StatusBar style={theme === "dark" ? "light" : "dark"} />
-      <Header />
-      <Stack screenOptions={{ headerShown: false }} />
+      <Slot />
     </ThemedView>
   );
 };
 
 export default function RootLayout() {
   return (
-    <ThemeProvider>
-      <LayoutContent />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider>
+        <LayoutContent />
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }

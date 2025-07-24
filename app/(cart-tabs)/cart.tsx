@@ -1,12 +1,13 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import ThemedView from '@/components/ThemedView'
 
-const cart = () => {
+const CartScreen = () => {
   return (
-    <View>
+    <ThemedView className='flex-1'>
       <Text>cart</Text>
-    </View>
+    </ThemedView>
   )
 }
 
-export default cart
+export default CartScreen

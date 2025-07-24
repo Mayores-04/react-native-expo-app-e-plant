@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import { signInWithEmailAndPassword } from "firebase/auth/react-native";
 
-import { auth } from "../../../FirebaseConfig";
 import { router } from "expo-router";
 
 export default function LoginPage() {
@@ -22,7 +21,7 @@ export default function LoginPage() {
   const handleLogin = async () => {
     console.log("Login triggered");
 
-    router.replace("/home");
+    router.replace("/(home-tabs)/home");
     // try {
     //   const userCredential = await signInWithEmailAndPassword(
     //     auth,
@@ -82,7 +81,7 @@ export default function LoginPage() {
           <Text style={{ color: "white", fontWeight: "600" }}>
             Don't have an account?
           </Text>
-          <Pressable onPress={() => router.push("/auth/register")}>
+          <Pressable onPress={() => router.push("/Register")}>
             <Text style={styles.link}>Register</Text>
           </Pressable>
         </View>
